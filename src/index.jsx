@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './app.jsx';
 
 import '../assets/stylesheets/application.scss';
-
-const Hello = props => <div>Hello, {props.name}</div>;
+<link rel="stylesheet" href="https://www.bootstrapcdn.com/fontawesome/">;
 
 const root = document.getElementById('root');
 if (root) {
-  ReactDOM.render(<Hello name="World" />, root);
+  ReactDOM.render(<App />, root);
 }
