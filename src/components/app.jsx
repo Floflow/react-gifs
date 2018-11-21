@@ -12,7 +12,6 @@ class App extends Component {
       gifs: [],
       selectedGifId: "13Ad2mtKsGukPC"
     };
-    this.search("walt disney");
   }
 
   search = (query) => {
@@ -24,6 +23,12 @@ class App extends Component {
         gifs: res.data,
       });
     });
+  }
+
+  selectedGift = () => {
+    this.setState({
+      selectedGifId: this.props.gif.id,
+    })
   }
 
   render(){
