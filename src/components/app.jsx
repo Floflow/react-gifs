@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+ import React, { Component } from 'react';
 import SearchBar from './search_bar.jsx';
 import Gif from './gif.jsx';
 import GifList from './gif_list.jsx';
@@ -17,7 +17,8 @@ class App extends Component {
   search = (query) => {
     giphy().search({
       q: query,
-      rating: 'g'
+      rating: 'g',
+      limit: 10
     }, (err, res) => {
       this.setState({
         gifs: res.data,
@@ -25,9 +26,9 @@ class App extends Component {
     });
   }
 
-  selectedGift = () => {
+  selectedGif = (id) => {
     this.setState({
-      selectedGifId: this.props.gif.id,
+      selectedGifId: id,
     })
   }
 
@@ -42,7 +43,7 @@ class App extends Component {
         </div>
         <div className="right-scene">
           <div className="gif-list">
-            <GifList gifs={this.state.gifs} />
+            <GifList gifs={this.state.gifs} selectedGif={this.selectedGif}/>
           </div>
         </div>
       </div>
